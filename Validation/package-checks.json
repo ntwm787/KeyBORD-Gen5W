@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "checks": [
+    "keyboard.activate: upstream metadata validation clean; no fixed firmware/year/region; hook paths valid",
+    "keyboard.hackers: upstream metadata validation clean; no fixed firmware/year/region; hook paths valid",
+    "keyboard.restore: upstream metadata validation clean; no fixed firmware/year/region; hook paths valid",
+    "Multiple firmware dates/versions, model years and regions match family patterns",
+    "Source equals store payloads; ZIP integrity passes; APK unchanged"
+  ],
+  "portal_submission": "NOT PERFORMED",
+  "public_id_availability": "UNVERIFIED"
+}

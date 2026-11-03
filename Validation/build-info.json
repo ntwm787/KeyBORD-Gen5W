@@ -1,0 +1,11 @@
+{
+  "upstream_commit": "dc08358d1d809390089e78eaba4ca9d108890ed3",
+  "payload_sha256": "641ab8a614f496765bb841665aa894fdb9d1f908c22ffb01af2059c7600ed0d3",
+  "status": "Local package and lifecycle checks passed.",
+  "package_version": "2.0.1",
+  "compatibility": {
+    "os": "NEEV*",
+    "models": "neev*",
+    "fixed_firmware": false
+  }
+}

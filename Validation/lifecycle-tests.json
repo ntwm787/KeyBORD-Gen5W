@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "checks": [
+    "activation and restore round trips, repeat launch, verified cleanup",
+    "stacked KeyBridge / factory restore, reverse-order uninstall",
+    "later user keyboard selection preserved",
+    "missing original IME refuses uninstall and retains snapshot",
+    "selection failure rolls back original settings",
+    "legacy no-snapshot removal leaves settings unchanged",
+    "APK removal pre-hook selects factory keyboard first",
+    "all production hooks pass shell syntax checks; copied cleanup runs without package cwd or siblings"
+  ],
+  "scope": "Local simulation of IME selection, settings restoration and hook behavior."
+}
