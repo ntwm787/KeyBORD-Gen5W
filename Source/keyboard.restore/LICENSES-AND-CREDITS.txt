@@ -1,0 +1,5 @@
+Hyundai Keyboard Restore - KeyBORD package 2.0.1
+Original KeyBORD scripts: Copyright (C) 2026 ntwm787 and contributors, GPL-3.0-only.
+NEMESIS is required separately and not bundled; its AGPL-3.0 license remains separate.
+https://github.com/xwtk/hmg_nemesis
+Repository: https://github.com/ntwm787/KeyBORD-Gen5W

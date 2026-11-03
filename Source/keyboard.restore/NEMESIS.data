@@ -1,0 +1,20 @@
+[nemesis]
+version=1.1
+id=keyboard.restore
+name=Hyundai Keyboard Restore
+type=application
+package-version=2.0.1
+short-desc="Selects the factory Hyundai keyboard as the system IME."
+detailed-desc="Keyboard installation, activation and factory restore for IONIQ 5 Gen5W. Includes NEMESIS 1.1 metadata and reversible keyboard-selection tools."
+os=NEEV*
+models=neev*
+depends=""
+preinstall=scripts/pre.sh
+postinstall=scripts/post.sh
+preuninstall=scripts/preun.sh
+postuninstall=scripts/cleanup.sh
+
+[app.0]
+kind=sh
+path=scripts/select.sh
+uid=root
