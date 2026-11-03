@@ -1,128 +1,97 @@
 # KeyBORD
 
-USB-ready packages for installing Hacker's Keyboard, activating it as the Android input method (IME), and restoring the factory keyboard on the tested Hyundai Gen5W infotainment system.
+Three keyboard packages for Hyundai IONIQ 5 Gen5W, updated for NEMESIS descriptor 1.1 and the Package Store. Package release 2.0.1. NEMESIS is required separately and is not bundled.
 
-KeyBORD uses an existing NEMESIS setup to run its installation and keyboard-selection scripts. **NEMESIS software is not bundled.** Obtain it separately and follow the [upstream NEMESIS documentation](https://github.com/xwtk/hmg_nemesis) for setup, compatibility, and execution instructions.
+## Downloads
 
-## Confirmed setup and test status
+There are three package types. Each has a USB wrapper for testing and an inner package for portal upload:
 
-The reported working setup is a **2023 Hyundai IONIQ 5 SEL**, with **Gen5W infotainment running Android 4.4 (API 19)**, used with **SmartTube**.
+| Package | USB download | Portal upload |
+| --- | --- | --- |
+| Hacker's Keyboard | [Hacker Keyboard USB v2.zip](USB/Hacker%20Keyboard%20USB%20v2.zip) | [keyboard.hackers.zip](Store/keyboard.hackers.zip) |
+| KeyBridge | [KeyBridge USB v2.zip](USB/KeyBridge%20USB%20v2.zip) | [keyboard.activate.zip](Store/keyboard.activate.zip) |
+| Hyundai Keyboard Restore | [Hyundai Keyboard Restore USB v2.zip](USB/Hyundai%20Keyboard%20Restore%20USB%20v2.zip) | [keyboard.restore.zip](Store/keyboard.restore.zip) |
 
-| Component | Reported result |
-| --- | --- |
-| Hacker's Keyboard 1.41.1 APK installation | Worked on the confirmed setup. |
-| KeyBridge activation script | Worked on the confirmed setup. |
-| Packaged `Hyundai Keyboard Restore USB v1.zip` | Worked on the confirmed setup. |
+The Store directory holds the three corresponding installable packages, not additional tools. **Upload a Store ZIP to the portal, never a USB wrapper or the project bundle.** The older USB v1 files at the repository root remain available for the original NEMESIS workflow.
 
-These results are specific to the setup above. Other vehicles, trims, regions, firmware versions, Android versions, and applications are untested. SmartTube is the reported application context; this is not a claim that every SmartTube version or text field has been tested. KeyBORD does not install SmartTube.
+## Requirements and test status
 
-Because KeyBridge selects the Android input method system-wide, Hacker's Keyboard is expected to work in other apps installed on Gen5W head units through NEMESIS. **Use with apps other than SmartTube is untested**, and keyboard behavior may vary by app.
+- A working NEMESIS 1.16+ installation on Android-based Gen5W with API 19; Android must be fully started.
+- Factory Hyundai IME `com.android.inputmethod.diopen/.DioInputMethodService` present.
+- Keep the car parked throughout install, selection, uninstall and verification.
 
-## Packages
+Legacy v1 keyboard installation, KeyBridge activation and factory restore were reported working on a 2023 Hyundai IONIQ 5 SEL, Gen5W Android 4.4/API 19, in SmartTube. Hacker's Keyboard remains version 1.41.1 and its APK is byte-identical to that release.
 
-Download the following three USB-ready ZIPs from this repository's published files or releases:
+Compatibility metadata uses `os=NEEV*` and `models=neev*`, covering the IONIQ 5 family without a fixed firmware revision, date, region or model year. NEMESIS supports these wildcard patterns. Its `os` value matches the software identifier, not Android's `4.4` version string. No particular firmware release is required.
 
-| Download | Purpose |
-| --- | --- |
-| `Hacker Keyboard USB v1.zip` | Installs the Hacker's Keyboard **1.41.1 APK**. |
-| `KeyBridge USB v1.zip` | Activates Hacker's Keyboard as the Android IME. Run after installing the APK. |
-| `Hyundai Keyboard Restore USB v1.zip` | Restores the factory Hyundai IME. |
+The actual runtime checks require Android API 19, root, Android fully started and the needed keyboard IMEs. No firmware identifier, build date or binary hash is checked by these keyboard packages. ccNC and S5W_L are outside scope.
 
-Use one package at a time. Installing the APK and activating the IME are separate steps.
+## Install from USB
 
-## Before you start
-
-- Keep the car **parked** throughout installation, activation, restoration, and testing.
-- Have a working NEMESIS setup appropriate for your infotainment system. Review its upstream requirements before proceeding.
-- Use a USB drive prepared according to the NEMESIS instructions and the vehicle's supported USB requirements.
-- Keep a backup of the USB drive's existing `NEMESIS.data` and any files you will replace.
-
-These packages change infotainment software or input-method settings. Use them at your own risk; compatibility and recovery are not guaranteed.
-
-## Installation
+Use one USB wrapper at a time. Preserve existing USB files before replacing them.
 
 ### 1. Install Hacker's Keyboard
 
-1. On your computer, open `Hacker Keyboard USB v1.zip` and **extract the outer ZIP directly to the USB drive's root**. Do not leave the extracted contents inside an extra folder.
-2. **Keep the inner ZIP intact in the NEMESIS `Packages` folder.** Do not extract it, rename it, or move it out of that folder.
-3. Safely eject the USB drive and connect it to the infotainment system while the car is parked.
-4. Run the package using your working NEMESIS execution procedure. Allow the operation to finish before removing the drive.
-5. Check **Packages** in NEMESIS for the **Hacker's Keyboard** package to confirm the APK installation completed before continuing.
+1. Extract `Hacker Keyboard USB v2.zip` directly to the USB root, without an extra enclosing directory.
+2. **Keep the inner ZIP intact in the supplied `packages` folder.** Do not extract it, rename it or move it out of that folder.
+3. Safely eject the drive, connect it while parked and confirm installation through NEMESIS.
+4. In NEMESIS Manager, check **My Packages** for **Hacker's Keyboard** before continuing.
 
-The intended layout is the outer archive's contents at the USB root, including `NEMESIS.data` and the unchanged inner ZIP in its supplied location. Copying the unopened outer ZIP to the drive is not sufficient.
+The keyboard package installs the APK; selecting it is a separate step. The package refuses to take ownership of an existing Hacker's Keyboard installed outside the same NEMESIS package ID. Preserve that installation and its settings before deciding whether to remove it manually.
 
-### 2. Activate the keyboard with KeyBridge
+### 2. Activate with KeyBridge
 
-1. On your computer, open `KeyBridge USB v1.zip` and **extract the outer ZIP directly to the USB drive's root**. Do not leave the extracted contents inside an extra folder.
-2. **Keep the inner ZIP intact in the NEMESIS `Packages` folder.** Do not extract it, rename it, or move it out of that folder.
-3. Safely eject the USB drive and connect it to the infotainment system while the car is parked.
-4. Run the package using your working NEMESIS execution procedure. Allow the operation to finish before removing the drive.
-5. Open a text-entry field in SmartTube and verify that Hacker's Keyboard appears and accepts input.
+1. Extract `KeyBridge USB v2.zip` directly to USB root.
+2. **Keep the inner ZIP intact in the supplied `packages` folder.**
+3. Connect the drive while parked and confirm installation. KeyBridge depends on `keyboard.hackers` package version 2.0.1 or later.
+4. Open a text-entry field in SmartTube and verify Hacker's Keyboard appears and accepts input.
 
-If activation does not work, confirm that Hacker's Keyboard appears under **Packages** in NEMESIS and review the KeyBridge execution result before trying again.
+Installation selects the IME. You can later select it again using **My Packages -> KeyBridge -> Launch**. This selects the Android input method system-wide. Keyboard behavior can vary by app.
 
-## Restore the factory keyboard
+### 3. Restore the Hyundai keyboard
 
-The restore package was tested on the confirmed setup above.
+1. Extract `Hyundai Keyboard Restore USB v2.zip` directly to USB root.
+2. **Keep the inner ZIP intact in the supplied `packages` folder.**
+3. Connect the drive while parked and confirm installation, or use **Launch** if this package is already installed.
+4. Open a text-entry field in SmartTube. Verify the Hyundai keyboard is the default and Hacker's Keyboard no longer pops up.
 
-1. On your computer, open `Hyundai Keyboard Restore USB v1.zip` and **extract the outer ZIP directly to the USB drive's root**. Do not leave the extracted contents inside an extra folder.
-2. **Keep the inner ZIP intact in the NEMESIS `Packages` folder.** Do not extract it, rename it, or move it out of that folder.
-3. Safely eject the USB drive and connect it to the infotainment system while the car is parked.
-4. Run the package using your working NEMESIS execution procedure. Allow the operation to finish before removing the drive.
-5. Open a text-entry field in SmartTube and verify that the factory Hyundai keyboard opens by default and accepts input. Hacker's Keyboard should no longer pop up.
+Restoration changes IME selection; it does not remove the Hacker's Keyboard APK or roll back infotainment firmware.
 
-Verify the active keyboard after restoration. This package restores the factory IME selection; it is not a full infotainment rollback or factory reset.
+## Uninstall and updates
+
+KeyBridge and Restore save the prior default IME, enabled IME list and selected subtype under `/data/nemesis/backup/<package-id>/`. On uninstall they restore that snapshot if the current values still match their recorded applied state. Later changes are preserved rather than overwritten. If a required previous IME is missing, uninstall refuses and retains the snapshot; reinstall that IME first. Snapshot files are removed only by the post-uninstall cleanup hook after successful removal.
+
+For an exact controlled round trip, uninstall in reverse order: **Hyundai Keyboard Restore -> KeyBridge -> Hacker's Keyboard**. Restore removal may temporarily reactivate Hacker's Keyboard; KeyBridge removal then returns to the original IME. NEMESIS prevents removing the Hacker's Keyboard package while KeyBridge depends on it. Before removing a currently active Hacker's Keyboard APK, its uninstall hook selects and verifies the factory IME.
+
+NEMESIS runs old uninstall hooks when updating a package, so updates can restore its baseline and then apply the new version. APK replacement can reset app preferences. Do not force uninstall or remove the snapshot directory to bypass a failure.
+
+When migrating from v1, first use the existing Restore tool and verify the factory keyboard in SmartTube. Remove old Restore and KeyBridge entries from My Packages, then update or reinstall Hacker's Keyboard with the new wrapper. Install the new KeyBridge afterward. Old helper packages have no saved baseline; their uninstall cannot reconstruct one retroactively. Record your current keyboard settings before migration.
 
 ## Troubleshooting
 
-| Symptom | What to check |
+| Symptom | Check |
 | --- | --- |
-| Nothing happens when the USB is connected | Confirm that NEMESIS is already working on this system and that you followed its execution procedure. Connecting the drive alone is not proof of execution. |
-| The wrong operation runs | Confirm that the USB-root `NEMESIS.data` was replaced with the copy from the package you intend to run. Check for mixed package files. |
-| A payload cannot be found | Check for an extra enclosing folder. Extract the outer ZIP to the USB root and leave the inner ZIP intact, with its original name and supplied location. |
-| Hacker's Keyboard is installed but does not appear | APK installation does not select the IME. Run KeyBridge after confirming installation succeeded, then reopen the text-entry field. |
-| KeyBridge does not activate the keyboard | Review available NEMESIS output or logs. Confirm the APK installed successfully and that the vehicle matches the tested setup. Do not assume a different firmware uses the same IME configuration. |
-| The factory keyboard does not return | Inspect the execution result before repeating it. Confirm that the restore package's matching files are on the USB drive, then report any failure with the vehicle and firmware details. |
-| Behavior differs on another system | Record the vehicle model/year/trim, region, infotainment firmware, Android version if known, package used, and observed result. Compatibility outside the confirmed setup remains unverified. |
+| Old compatibility warning | Check the inner package has `version=1.1`, and that you used this release's ZIP. |
+| Dependency missing | Install Hacker's Keyboard package 2.0.1 first; a manually installed APK does not satisfy this NEMESIS dependency. |
+| Package refused as incompatible | Record software/model and `nemesis compat` output. Check the Android version and required keyboard availability. |
+| Nothing happens or wrong operation | Check USB-root NEMESIS.data and keep the intended inner package intact in `packages`. Avoid mixed descriptors. |
+| Selection fails | Review package output/logs and confirm the IME exists. Send the exact package/version and relevant logs. |
+| Uninstall refuses | Restore the missing original IME or resolve the dependency; preserve the snapshot. Do not force removal. |
+| New build installation reports failure | A failed postinstall can leave a package registered. Inspect My Packages and logs before retrying or removing it. |
+| Keyboard stays selected after helper removal | A later setting change may have caused the hook to preserve current values. Use the Restore tool and verify SmartTube. |
 
-When reporting a problem, include the exact ZIP filename, which steps completed, and relevant logs with personal information removed.
+## Source code
 
-## Credits
+Browse [Source/](Source/) for the editable package descriptors and shell scripts, or download [KeyBORD 2.01 Source.zip](KeyBORD%202.01%20Source.zip). Hacker's Keyboard source is maintained separately upstream, as linked in the licensing section. Run `python build.py` to rebuild the Store packages and existing USB wrappers from Source/.
 
-- **KeyBORD's original author and contributors** — original installation, activation, and restore scripts; USB package preparation; and vehicle testing.
-- **Klaus Weidner and the Hacker's Keyboard contributors** — [Hacker's Keyboard](https://github.com/klausw/hackerskeyboard), the keyboard application included as a 1.41.1 APK.
-- **xwtk and the NEMESIS contributors** — [hmg_nemesis](https://github.com/xwtk/hmg_nemesis), the separately obtained execution software used by this workflow.
+## Store submission
 
-This is an independent community project. Product names identify the relevant software and vehicle; they do not imply endorsement by Hyundai or the upstream projects.
+See [Testing and Submission](Testing%20and%20Submission.md). Install and uninstall all revised packages on the head unit before submitting. Submit the three Store ZIPs separately, using repository `https://github.com/ntwm787/KeyBORD-Gen5W`. Local builds and simulations do not establish portal acceptance, package-ID ownership or vehicle compatibility.
 
-## Licensing and redistribution
+## Credits and licenses
 
-Each component retains its respective license. Packaging components together does not relicense them under a single project-wide license.
+- Original KeyBORD scripts: ntwm787 and contributors, GPL-3.0-only. Complete editable sources are under Source and inside the packages.
+- Hacker's Keyboard 1.41.1: Klaus Weidner and contributors, Apache-2.0; [upstream source](https://github.com/klausw/hackerskeyboard/tree/1.41.1). The keyboard Store ZIP carries the Apache license and collected upstream copyright notices. No standalone NOTICE was present in the inspected upstream tag. Retain any applicable NOTICE if replacing the APK in future.
+- [NEMESIS](https://github.com/xwtk/hmg_nemesis): xwtk and contributors, AGPL-3.0, obtained separately and not bundled.
 
-| Component | License | Scope |
-| --- | --- | --- |
-| Original KeyBORD scripts | **GPL-3.0** | The original scripts authored for KeyBORD. |
-| Hacker's Keyboard | **Apache-2.0** | The third-party keyboard application, including the bundled APK; see the [upstream repository](https://github.com/klausw/hackerskeyboard). |
-| NEMESIS | **AGPL-3.0** | The separately obtained NEMESIS software; see the [upstream repository](https://github.com/xwtk/hmg_nemesis). **NEMESIS software is not bundled with KeyBORD.** |
-
-### Original KeyBORD scripts
-
-The original KeyBORD scripts are released under the [GNU General Public License, version 3](https://www.gnu.org/licenses/gpl-3.0.html). Anyone may use, study, modify, redistribute, and continue this work subject to that license. Redistributed versions must retain applicable notices and meet the GPL's source-code and licensing requirements.
-
-Distributions of the scripts must include the full GPL-3.0 license text, preserve the author's copyright notices, and provide the corresponding script source as required by the license. This README is not a replacement for the license text.
-
-### Bundled Hacker's Keyboard APK
-
-Hacker's Keyboard remains under **Apache-2.0**. Redistributing its APK requires including a copy of the Apache-2.0 license and preserving the applicable copyright, license, and attribution notices. Preserve and include any applicable upstream **NOTICE** material supplied with the distributed version. Mark modified files if distributing changes. See the [Apache-2.0 redistribution terms](https://www.apache.org/licenses/LICENSE-2.0) for the full requirements.
-
-Keep those materials with the APK distribution, including in the downloadable keyboard package; an upstream link alone does not replace the required license copy or notices. The KeyBORD GPL-3.0 designation does not replace the APK's license or any applicable third-party notices within it.
-
-### NEMESIS
-
-NEMESIS retains its **AGPL-3.0** license. Obtain its software, source, license, and instructions from [xwtk/hmg_nemesis](https://github.com/xwtk/hmg_nemesis). Using NEMESIS to execute KeyBORD scripts does not change the stated licenses of the separate components. Any redistribution or modification of NEMESIS must follow its own license terms.
-
-### Contributions
-
-Improvements, documentation corrections, and clearly identified compatibility reports are welcome. Contributions to the original KeyBORD scripts must be compatible with their GPL-3.0 licensing. Preserve third-party ownership and license notices, and distinguish confirmed vehicle tests from untested changes.
-
-Software is provided without warranty, subject to the terms of the applicable licenses.
+Licenses remain respective; packaging does not relicense the APK or NEMESIS. This is an independent community project, without implied endorsement by Hyundai or the upstream projects.
