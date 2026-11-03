@@ -5,7 +5,7 @@ Android 4.4/API 19, SmartTube. Current declared OS/model hints are in NEMESIS.da
 Install and uninstall while parked. Full instructions and source:
 https://github.com/ntwm787/KeyBORD-Gen5W
 
-Installs Hacker's Keyboard 1.41.1; activation is separate (KeyBridge).
+Hacker's Keyboard is a standalone, open-source Android keyboard app, similar in purpose to Gboard or Microsoft SwiftKey. It is distributed as a normal keyboard APK and does not require Google Play Services. KeyBORD packages it for text entry in third-party apps installed through NEMESIS, where the factory Hyundai keyboard is unavailable. Install the APK first, then use KeyBridge to select it as the Android input method.
 This package refuses taking over an existing unmanaged keyboard installation.
 Before APK removal, an active Hacker keyboard is replaced by the factory IME.
 NEMESIS dependencies can require uninstalling KeyBridge first. APK updates may
