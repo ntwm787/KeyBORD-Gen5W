@@ -2,6 +2,12 @@
 
 Three keyboard packages for Hyundai IONIQ 5 Gen5W, updated for NEMESIS descriptor 1.1 and the Package Store. Package release 2.0.1. NEMESIS is required separately and is not bundled.
 
+## What Hacker's Keyboard does
+
+Hacker's Keyboard is a standalone, open-source Android keyboard app, similar in purpose to Gboard or Microsoft SwiftKey. It is distributed as a normal keyboard APK and does not require Google Play Services. KeyBORD packages it for text entry in third-party apps installed through NEMESIS, where the factory Hyundai keyboard is unavailable. Install the APK first, then use KeyBridge to select it as the Android input method.
+
+Hacker's Keyboard is maintained by its upstream open-source project. KeyBORD provides NEMESIS packaging, keyboard activation and factory keyboard restoration; it is not a new keyboard engine. [Hacker's Keyboard source](https://github.com/klausw/hackerskeyboard/tree/1.41.1).
+
 ## Downloads
 
 There are three package types. Each has a USB wrapper for testing and an inner package for portal upload:
