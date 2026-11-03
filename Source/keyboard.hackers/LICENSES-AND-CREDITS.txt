@@ -1,0 +1,10 @@
+Hacker's Keyboard - KeyBORD package 2.0.1
+Original KeyBORD scripts: Copyright (C) 2026 ntwm787 and contributors, GPL-3.0-only.
+NEMESIS is required separately and not bundled; its AGPL-3.0 license remains separate.
+https://github.com/xwtk/hmg_nemesis
+Repository: https://github.com/ntwm787/KeyBORD-Gen5W
+Hacker's Keyboard 1.41.1 APK remains byte-identical to the prior KeyBORD release.
+Its Apache-2.0 license, copyright notices, and upstream source link are included.
+Source: https://github.com/klausw/hackerskeyboard/tree/1.41.1
+The inspected upstream tag had no standalone NOTICE file. Retain any applicable
+NOTICE if updating/replacing the APK in future. Packaging does not relicense it.

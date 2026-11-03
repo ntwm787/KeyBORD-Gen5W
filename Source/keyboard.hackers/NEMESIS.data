@@ -1,0 +1,19 @@
+[nemesis]
+version=1.1
+id=keyboard.hackers
+name=Hacker's Keyboard
+type=application
+package-version=2.0.1
+short-desc="Keyboard for third-party apps installed through NEMESIS."
+detailed-desc="Installs Hacker's Keyboard 1.41.1 for text entry in third-party apps installed through NEMESIS, where the Hyundai keyboard is unavailable. Activate it with KeyBridge after installation."
+os=NEEV*
+models=neev*
+depends=""
+preinstall=scripts/pre.sh
+postinstall=scripts/post.sh
+preuninstall=scripts/preun.sh
+
+[app.0]
+kind=apk
+path=app/HackersKeyboard.apk
+package=org.pocketworkstation.pckeyboard
