@@ -26,9 +26,9 @@ The three existing IDs are preserved for migration:
 
 | Portal upload | ID | Package version | Dependency |
 | --- | --- | --- | --- |
-| Store/keyboard.hackers.zip | keyboard.hackers | 2.0.1 | none |
-| Store/keyboard.activate.zip | keyboard.activate | 2.0.1 | keyboard.hackers >= 2.0.1 |
-| Store/keyboard.restore.zip | keyboard.restore | 2.0.1 | none |
+| Store/keyboard.hackers.zip | keyboard.hackers | 2.0.2 | none |
+| Store/keyboard.activate.zip | keyboard.activate | 2.0.2 | keyboard.hackers >= 2.0.1 |
+| Store/keyboard.restore.zip | keyboard.restore | 2.0.2 | none |
 
 Public catalog availability does not prove that an ID is unreserved: pending submissions can also reserve IDs. If the portal says an ID belongs to someone else, do not submit under that ID. Report the collision so all descriptors, dependencies, state paths and migration instructions can be revised together. No account credentials are needed to prepare or locally validate these files.
 
@@ -37,7 +37,7 @@ Public catalog availability does not prove that an ID is unreserved: pending sub
 1. Create/sign into your xwtk.Account, then open https://portal.xwtk.cloud/nemesis/.
 2. Choose Submit a new package (or Submit new version if your account already owns that ID).
 3. Upload **Store/keyboard.hackers.zip**, not its USB wrapper. Enter repository https://github.com/ntwm787/KeyBORD-Gen5W.
-4. Check the parsed descriptor: format 1.1, ID keyboard.hackers, package version 2.0.1, OS/model restrictions and license information.
+4. Check the parsed descriptor: format 1.1, ID keyboard.hackers, package version 2.0.2, OS/model restrictions and license information.
 5. Include truthful install/uninstall test details, then submit for approval.
 6. Repeat separately for keyboard.activate and keyboard.restore. KeyBridge requires the keyboard dependency to be listed/available; submit the keyboard first and resolve its approval before claiming one-click dependency availability.
 7. Keep the current release available while review is pending. Once approved, verify the store listing and NEMESIS Manager metadata.

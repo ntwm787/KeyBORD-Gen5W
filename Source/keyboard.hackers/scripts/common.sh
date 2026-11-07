@@ -12,6 +12,10 @@ require_android() {
  IDENTITY=$(id 2>&1) || fail 'Cannot determine execution identity.'
  case "$IDENTITY" in uid=0\(*|'uid=0 '*) ;; *) fail 'Root required.' ;; esac
  [ "$(getprop sys.boot_completed)" = 1 ] || fail 'Wait for Android to finish starting.'
+ case "$(getprop ro.build.product)" in
+  *S5W_M*|*s5w_m*) ;;
+  *) fail 'Requires an Android Gen5W (S5W_M) head unit; no vehicle-model restriction.' ;;
+ esac
  [ "$(getprop ro.build.version.sdk)" = 19 ] || fail 'This build targets Android API 19 Gen5W.'
 }
 ime_exists() {

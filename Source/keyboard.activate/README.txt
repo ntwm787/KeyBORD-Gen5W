@@ -1,7 +1,8 @@
-KeyBORD keyboard.activate, package release 2.0.1
+KeyBORD keyboard.activate, package release 2.0.2
 
 Prepared for NEMESIS 1.16+ / descriptor 1.1. Reported legacy working setup: 2023 IONIQ 5 SEL Gen5W,
-Android 4.4/API 19, SmartTube. Current declared OS/model hints are in NEMESIS.data.
+Android 4.4/API 19, SmartTube. Gen5W across vehicle makes/models; no year, region or firmware revision lock.
+The runtime requires S5W_M software, Android API 19 and the required keyboard IMEs.
 Install and uninstall while parked. Full instructions and source:
 https://github.com/ntwm787/KeyBORD-Gen5W
 

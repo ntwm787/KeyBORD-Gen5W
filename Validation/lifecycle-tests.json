@@ -8,7 +8,10 @@
     "selection failure rolls back original settings",
     "legacy no-snapshot removal leaves settings unchanged",
     "APK removal pre-hook selects factory keyboard first",
+    "Gen5W family accepts different model/region/revision identifiers; S5W_L, ccNC and missing identity rejected before changes",
+    "2.01 keyboard then KeyBridge update lifecycle using exact previous release hooks; activation and factory fallback retained",
+    "2.01 KeyBridge direct update preserves original baseline through uninstall/reinstall",
     "all production hooks pass shell syntax checks; copied cleanup runs without package cwd or siblings"
   ],
-  "scope": "Local simulation of IME selection, settings restoration and hook behavior."
+  "limit": "Local simulation of IME selection, settings restoration and hook behavior."
 }

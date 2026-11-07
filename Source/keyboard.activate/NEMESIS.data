@@ -3,11 +3,11 @@ version=1.1
 id=keyboard.activate
 name=KeyBridge
 type=application
-package-version=2.0.1
+package-version=2.0.2
 short-desc="Selects Hacker's Keyboard as the system input method."
-detailed-desc="Keyboard installation, activation and factory restore for IONIQ 5 Gen5W. Includes NEMESIS 1.1 metadata and reversible keyboard-selection tools."
-os=NEEV*
-models=neev*
+detailed-desc="Selects Hacker's Keyboard system-wide for NEMESIS-installed apps on Gen5W across vehicle models. Requires the keyboard package. Saves the previous input method for restoration on uninstall."
+os=*S5W_M*
+models=any
 depends="keyboard.hackers@>=2.0.1"
 preinstall=scripts/pre.sh
 postinstall=scripts/post.sh

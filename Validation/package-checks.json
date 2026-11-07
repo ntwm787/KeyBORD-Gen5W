@@ -1,12 +1,13 @@
 {
   "result": "PASS",
+  "package_version": "2.0.2",
   "checks": [
-    "keyboard.activate: upstream metadata validation clean; no fixed firmware/year/region; hook paths valid",
-    "keyboard.hackers: upstream metadata validation clean; no fixed firmware/year/region; hook paths valid",
-    "keyboard.restore: upstream metadata validation clean; no fixed firmware/year/region; hook paths valid",
-    "Multiple firmware dates/versions, model years and regions match family patterns",
-    "Source equals store payloads; ZIP integrity passes; APK unchanged"
+    "keyboard.activate: upstream descriptor validator passes; same ID, higher version, unrestricted models, exact source payload",
+    "keyboard.hackers: upstream descriptor validator passes; same ID, higher version, unrestricted models, exact source payload",
+    "keyboard.restore: upstream descriptor validator passes; same ID, higher version, unrestricted models, exact source payload",
+    "exactly three USB wrappers; each holds one intact matching Store package",
+    "Hacker Keyboard APK unchanged; all existing licenses and notices retained",
+    "software glob accepts different model, region, year and firmware revision strings"
   ],
-  "portal_submission": "NOT PERFORMED",
-  "public_id_availability": "UNVERIFIED"
+  "limit": "Local package inspection; lifecycle simulation is recorded separately."
 }

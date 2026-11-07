@@ -1,3 +1,12 @@
+# 2.0.2 - 2026-11-06 (KeyBORD 2.02)
+
+- Broaden all three packages from IONIQ 5 to Android Gen5W across vehicle makes/models: `os=*S5W_M*`, `models=any`.
+- Retain the Gen5W software-family, Android API 19, root, boot-complete and required IME checks; no firmware-revision/year/region lock.
+- Preserve package IDs and KeyBridge's `keyboard.hackers >= 2.0.1` dependency for updates over 2.01.
+- Document Update-in-place order: keyboard first, KeyBridge second; Restore only when factory selection is wanted.
+- Keep the Hacker's Keyboard 1.41.1 APK unchanged and retain licenses/notices.
+- Fit all package detail descriptions within NEMESIS's 256-character limit.
+
 # 2.0.1 - prepared 2026-11-02
 
 - Migrate installable packages to descriptor version 1.1, with distinct package-version, type, descriptions and compatibility/dependency metadata.

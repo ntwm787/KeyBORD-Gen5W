@@ -1,6 +1,6 @@
 # KeyBORD
 
-Three keyboard packages for Hyundai IONIQ 5 Gen5W, updated for NEMESIS descriptor 1.1 and the Package Store. Package release 2.0.1. NEMESIS is required separately and is not bundled.
+Three keyboard packages for Android Gen5W across vehicle makes and models, updated for NEMESIS descriptor 1.1 and the Package Store. Package release 2.0.2. NEMESIS is required separately and is not bundled.
 
 ## What Hacker's Keyboard does
 
@@ -20,17 +20,17 @@ There are three package types. Each has a USB wrapper for testing and an inner p
 
 The Store directory holds the three corresponding installable packages, not additional tools. **Upload a Store ZIP to the portal, never a USB wrapper or the project bundle.** The older USB v1 files at the repository root remain available for the original NEMESIS workflow.
 
-## Requirements and test status
+## Requirements
 
 - A working NEMESIS 1.16+ installation on Android-based Gen5W with API 19; Android must be fully started.
-- Factory Hyundai IME `com.android.inputmethod.diopen/.DioInputMethodService` present.
+- Factory IME `com.android.inputmethod.diopen/.DioInputMethodService` present.
 - Keep the car parked throughout install, selection, uninstall and verification.
 
 Legacy v1 keyboard installation, KeyBridge activation and factory restore were reported working on a 2023 Hyundai IONIQ 5 SEL, Gen5W Android 4.4/API 19, in SmartTube. Hacker's Keyboard remains version 1.41.1 and its APK is byte-identical to that release.
 
-Compatibility metadata uses `os=NEEV*` and `models=neev*`, covering the IONIQ 5 family without a fixed firmware revision, date, region or model year. NEMESIS supports these wildcard patterns. Its `os` value matches the software identifier, not Android's `4.4` version string. No particular firmware release is required.
+Compatibility metadata uses `os=*S5W_M*` and `models=any`, covering the Gen5W software family across vehicle makes and models without a fixed firmware revision, date, region or model year. NEMESIS supports these wildcard patterns. Its `os` value matches the software identifier, not Android's `4.4` version string. No particular firmware release is required.
 
-The actual runtime checks require Android API 19, root, Android fully started and the needed keyboard IMEs. No firmware identifier, build date or binary hash is checked by these keyboard packages. ccNC and S5W_L are outside scope.
+The runtime checks require the Gen5W `S5W_M` software-family marker in `ro.build.product`, Android API 19, root, Android fully started and the needed keyboard IMEs. The family check has no vehicle-model, model-year, region, firmware-revision, build-date or binary-hash restriction. ccNC and S5W_L are outside scope.
 
 ## Install from USB
 
@@ -69,7 +69,15 @@ KeyBridge and Restore save the prior default IME, enabled IME list and selected 
 
 For an exact controlled round trip, uninstall in reverse order: **Hyundai Keyboard Restore -> KeyBridge -> Hacker's Keyboard**. Restore removal may temporarily reactivate Hacker's Keyboard; KeyBridge removal then returns to the original IME. NEMESIS prevents removing the Hacker's Keyboard package while KeyBridge depends on it. Before removing a currently active Hacker's Keyboard APK, its uninstall hook selects and verifies the factory IME.
 
-NEMESIS runs old uninstall hooks when updating a package, so updates can restore its baseline and then apply the new version. APK replacement can reset app preferences. Do not force uninstall or remove the snapshot directory to bypass a failure.
+### Update an existing 2.01 installation
+
+Install the new ZIPs and confirm **Update** in NEMESIS; no manual uninstall is required. Package IDs remain `keyboard.hackers`, `keyboard.activate` and `keyboard.restore`, and version `2.0.2` is higher than `2.0.1`. KeyBridge still accepts `keyboard.hackers >= 2.0.1`, so the existing dependency remains satisfied during the upgrade.
+
+1. Update Hacker's Keyboard first. NEMESIS removes/replaces its old APK, so the factory keyboard may temporarily become active and APK preferences may reset.
+2. Update KeyBridge next. Its installation selects Hacker's Keyboard again. Verify typing in SmartTube.
+3. If you use Factory/Hyundai Keyboard Restore, update that package only when you want the factory keyboard selected; its install/update selects it.
+
+NEMESIS runs the old uninstall hooks during updates and then installs the replacement. KeyBridge restores its saved baseline when its recorded state still matches, then captures the baseline for the new installation. Later settings changes are preserved by the old hook. Do not force uninstall or remove snapshot directories to bypass a failure.
 
 When migrating from v1, first use the existing Restore tool and verify the factory keyboard in SmartTube. Remove old Restore and KeyBridge entries from My Packages, then update or reinstall Hacker's Keyboard with the new wrapper. Install the new KeyBridge afterward. Old helper packages have no saved baseline; their uninstall cannot reconstruct one retroactively. Record your current keyboard settings before migration.
 
@@ -88,7 +96,7 @@ When migrating from v1, first use the existing Restore tool and verify the facto
 
 ## Source code
 
-Browse [Source/](Source/) for the editable package descriptors and shell scripts, or download [KeyBORD 2.01 Source.zip](KeyBORD%202.01%20Source.zip). Hacker's Keyboard source is maintained separately upstream, as linked in the licensing section. Run `python build.py` to rebuild the Store packages and existing USB wrappers from Source/.
+Browse [Source/](Source/) for the editable package descriptors and shell scripts, or download [KeyBORD 2.02 Source.zip](KeyBORD%202.02%20Source.zip). Hacker's Keyboard source is maintained separately upstream, as linked in the licensing section. Run `python build.py` to rebuild the Store packages and existing USB wrappers from Source/.
 
 ## Store submission
 
